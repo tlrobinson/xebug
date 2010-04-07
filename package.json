@@ -1,0 +1,8 @@
+{
+    "author": "Tom Robinson (http://tlrobinson.net/)",
+    "dependencies": [
+        "narcissus",
+        "jack"
+    ],
+    "version": "0.0.1"
+}
