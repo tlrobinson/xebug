@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+   "http://www.w3.org/TR/html4/strict.dtd">
+
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>xebug</title>
+    <script type="text/javascript" charset="utf-8" src="xebug.js"></script>
+    <script type="text/javascript" charset="utf-8" src="xd.js"></script>
+    <script type="text/javascript" charset="utf-8">
+        var XEBUG = xrequire("xebug");
+        function run() {
+            eval(XEBUG.xebugify(document.getElementById("code").value));
+        }
+        function write(str) {
+            document.getElementById("output").innerHTML += str + "<br />";
+        }
+    </script>
+</head>
+<body>
+<h2>Xebug Demo</h2>
+<h3>Code:</h3>
+<textarea rows="25" cols="80" id="code">
+function bar() {
+    var i;
+    for (i = 0; i < 5; i++) {
+        write("*** bar "+i+"!");
+    }
+}
+
+function foo() {
+    write("*** foo!");
+    bar();
+}
+
+function main()
+{
+    write("*** main, calling foo...");
+    foo();
+    write("*** main, foo returned.");
+    return 0;
+}
+
+main();
+</textarea>
+<p><input type="button" value="Debug!" onclick="run();"></p>
+<p>Enter "help" in the prompt for a list of commands. Think "gdb".</p>
+<h3>Output:</h3>
+<pre id="output"></pre>
+</body>
+</html>

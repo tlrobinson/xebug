@@ -1,0 +1,36 @@
+#!/usr/bin/env narwhal
+
+var FILE = require("file");
+var SYSTEM = require("system");
+
+var XEBUG = require("xebug");
+
+exports.main = function(args) {
+    for (var i = 1; i < args.length; i++) {
+        var source = null;
+        var name = args[i];
+        try {
+            print(Array(81).join("="));
+            
+            print("xebugifying... " + name);
+            var original = FILE.read(name, { charset : "UTF-8" });
+
+            source = XEBUG.xebugify(original, name);
+            print("xebugified...");
+
+            new Function(source);
+            print("compiled...");
+
+            FILE.write(name, source, { charset : "UTF-8" });
+
+        } catch (e) {
+            print(e);
+            print(e.line);
+            if (source)
+                FILE.write(name+".failed", source);
+            return;
+        }
+    }
+}
+
+exports.main(SYSTEM.args);

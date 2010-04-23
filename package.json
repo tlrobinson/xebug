@@ -1,4 +1,5 @@
 {
+    "name": "xebug",
     "author": "Tom Robinson (http://tlrobinson.net/)",
     "dependencies": [
         "narcissus",

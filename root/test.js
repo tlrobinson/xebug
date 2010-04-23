@@ -1,17 +1,26 @@
+// #include <stdio.h>
+
+function prn(str) {
+    document.write(str+"<br />");
+}
+
 function bar() {
-    for (var i = 0; i < 5; i++)
-        console.log("*** bar!");
+    var i;
+    for (i = 0; i < 5; i++) {
+        prn("*** bar "+i+"!");
+    }
 }
 
 function foo() {
-    console.log("*** foo!");
+    prn("*** foo!");
     bar();
 }
 
-function main (argc, argv)
+function main()
 {
-    console.log("*** asdf");
+    prn("*** main, calling foo...");
     foo();
+    prn("*** main, foo returned.");
     return 0;
 }
 
