@@ -36,6 +36,16 @@ TODO
 * CommonJS frontends
 * GUI
 
+Requirements
+------------
+
+To build:
+
+* [Narwhal](http://github.com/280north/narwhal)
+* [Narcissus](http://github.com/tlrobinson/narcissus)
+* [MiniBundler](http://github.com/tlrobinson/minibundler)
+* [Jake](http://github.com/280north/jake)
+
 License
 -------
 
